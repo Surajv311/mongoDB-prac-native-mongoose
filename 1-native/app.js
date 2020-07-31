@@ -17,7 +17,10 @@ client.connect(function(err) {
 
   const db = client.db(dbName);
 
-  client.close();
+  insertDocuments(db, function() {
+   client.close();
+     });
+
 });
 const insertDocuments = function(db, callback) {
   // Get the documents collection
