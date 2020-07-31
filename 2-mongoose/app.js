@@ -99,8 +99,27 @@ Fruit.insertMany([fruit2,fruit3] , function(err){
 //   });
 // }
 
-///////////////////////////////////
+// to read from db in mongoose
+// fun takes two parameters -> error that it may find & var_fruits for the whatever the fun finds back
+Fruit.find(function(err , var_fruits){
+  // insertMany can be commented(earlier part) to avoid repetetion every time you run the console
+  if(err){
+    console.log(err);
+  }
+  else{
+  console.log(var_fruits);
+  // var_fruits is our array
+  // TO DISPLAY ONLY NAME OF FRUITS WE USE LOOP
 
+// to close connection when this query is served
+mongoose.connection.close();
+  var_fruits.forEach(function(var_fruits){
+    console.log(var_fruits.name);
+  })
+}
+});
+
+// SIMILAR TO
 // const findDocuments = function(db, callback) {
 //   // Get the documents collection
 //   const collection = db.collection('col1');
