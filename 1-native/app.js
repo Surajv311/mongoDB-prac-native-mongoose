@@ -1,6 +1,9 @@
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
-
+// assert ensures testing
+//when we add a lot of the MongoDB code into our application, there's a lot of
+//assert that just validates our data entry and our connection to
+//the MongoDB database
 // Connection URL
 const url = 'mongodb://localhost:27017';
 
