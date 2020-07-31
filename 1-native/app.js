@@ -17,9 +17,13 @@ client.connect(function(err) {
 
   const db = client.db(dbName);
 
+  // insertDocuments(db, function() {
+  //  client.close();
+  //    });
   findDocuments(db, function() {
         client.close();
       });
+
 
 });
 const insertDocuments = function(db, callback) {
