@@ -19,3 +19,28 @@ client.connect(function(err) {
 
   client.close();
 });
+const insertDocuments = function(db, callback) {
+  // Get the documents collection
+  const collection = db.collection('col1');
+  // Insert some documents
+  collection.insertMany([
+    {
+      a : 1,
+      b : 1
+    },
+    {
+      a : 2,
+      b : 2
+    },
+    {
+      a : 3,
+      b : 3
+    },
+  ], function(err, result) {
+    assert.equal(err, null);
+    assert.equal(3, result.result.n);
+    assert.equal(3, result.ops.length);
+    console.log("Inserted 3 documents into the collection");
+    callback(result);
+  });
+}
