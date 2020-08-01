@@ -150,7 +150,7 @@ mongoose.connection.close();
 // }
 //////////////////////////////////////////////////////////////////////////
 
-// now to update/delete entry
+// now to update entry
 // takes 3 parameters
 Fruit.updateOne({_id:"5f243aadc0601d6a08bda61e"} , {name : "Lemon"} ,function(err){
   if(err){
@@ -158,5 +158,16 @@ Fruit.updateOne({_id:"5f243aadc0601d6a08bda61e"} , {name : "Lemon"} ,function(er
   }
   else{
   console.log("updated & running");
+}
+});
+
+// now to delete entry
+// you may put name or _id
+Fruit.deleteOne({_id:"5f243aadc0601d6a08bda61e"},function(err){
+  if(err){
+    console.log(err);
+  }
+  else{
+  console.log("deleted & running");
 }
 });
