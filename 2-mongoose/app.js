@@ -42,7 +42,7 @@ name : {
   type: String,
   required : [true , "No name specified!"]
 }
-// this would check if all the entries put has a name or not 
+// this would check if all the entries put has a name or not
 // validation -2
 rating : {
 type : Number ,
@@ -50,6 +50,8 @@ min : 1 ,
 max : 10 ,
 },
 // this would limit the rating from 1 to 10
+
+// WITH VALIDATION WE CAN KEEP THE DATA CLEAN & CHECKED 
 review : String
 });
 // the above lays down th formation for every new document we record
