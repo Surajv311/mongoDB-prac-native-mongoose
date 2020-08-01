@@ -36,7 +36,12 @@ mongoose.connect('mongodb://localhost:27017/2mongoose', {useNewUrlParser: true, 
 // next is to create a schema - blueprint/structure of our db
 const fruitSchema = new mongoose.Schema ({
 name : String ,
-rating : Number ,
+// here we have added data validation 
+rating : {
+type : Number ,
+min : 1 ,
+max : 10 ,
+},
 review : String
 });
 // the above lays down th formation for every new document we record
