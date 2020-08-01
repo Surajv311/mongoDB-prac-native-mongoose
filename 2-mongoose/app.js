@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 // creating or finding the db after localhost.../
 mongoose.connect('mongodb://localhost:27017/2mongoose', {useNewUrlParser: true, useUnifiedTopology: true});
-// SIMILAR TO
+// SIMILAR TO /////////////////////////////////////////////////////////////////
 // const MongoClient = require('mongodb').MongoClient;
 // const assert = require('assert');
 //
@@ -32,6 +32,7 @@ mongoose.connect('mongodb://localhost:27017/2mongoose', {useNewUrlParser: true, 
 //
 //
 // });
+///////////////////////////////////////////////////////////////////////////////
 
 // next is to create a schema - blueprint/structure of our db
 const fruitSchema = new mongoose.Schema ({
@@ -41,7 +42,7 @@ const fruitSchema = new mongoose.Schema ({
 name : {
   type: String,
   required : [true , "No name specified!"]
-}
+},
 // this would check if all the entries put has a name or not
 // validation -2
 rating : {
@@ -51,10 +52,10 @@ max : 10 ,
 },
 // this would limit the rating from 1 to 10
 
-// WITH VALIDATION WE CAN KEEP THE DATA CLEAN & CHECKED 
+// WITH VALIDATION WE CAN KEEP THE DATA CLEAN & CHECKED
 review : String
 });
-// the above lays down th formation for every new document we record
+// the above lays down the formation for every new document we record
 
 // Fruit would take two parameters -> name of the collection that would comply with this schema , schema
 // in first parameter we put the singular form of name
@@ -86,7 +87,7 @@ Fruit.insertMany([fruit2,fruit3] , function(err){
   else
   console.log("running");
 })
-//SIMILAR TO
+//SIMILAR TO ///////////////////////////////////////////////////////////////
 
 // const insertDocuments = function(db, callback) {
 //   // Get the documents collection
@@ -113,6 +114,7 @@ Fruit.insertMany([fruit2,fruit3] , function(err){
 //     callback(result);
 //   });
 // }
+/////////////////////////////////////////////////////////////////////////////
 
 // to read from db in mongoose
 // fun takes two parameters -> error that it may find & var_fruits for the whatever the fun finds back
@@ -134,7 +136,7 @@ mongoose.connection.close();
 }
 });
 
-// SIMILAR TO
+// SIMILAR TO ///////////////////////////////////////////////////////////////
 // const findDocuments = function(db, callback) {
 //   // Get the documents collection
 //   const collection = db.collection('col1');
@@ -146,3 +148,15 @@ mongoose.connection.close();
 //     callback(col1);
 //   });
 // }
+//////////////////////////////////////////////////////////////////////////
+
+// now to update/delete entry
+// takes 3 parameters
+Fruit.updateOne({_id:"5f243aadc0601d6a08bda61e"} , {name : "Lemon"} ,function(err){
+  if(err){
+    console.log(err);
+  }
+  else{
+  console.log("updated & running");
+}
+});
