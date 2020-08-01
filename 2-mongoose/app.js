@@ -31,41 +31,34 @@ const personSchema = new mongoose.Schema({
   name : String,
   age:Number,
   favfruit : fruitSchema,
-  // embedding fruit schema in this   
+  // embedding fruit schema in this
 });
 
 const Person = mongoose.model("Person" , personSchema);
 
+const fruit_ = new Fruit({
+  name : "Papaya",
+  rating : 7,
+  review : "ok"
+});
+fruit_.save()
+
 const person = new Person({
   name: "Rui",
-  age: "18"
+  age: "18",
+  favfruit: fruit_
 });
-// const fruit2 = new Fruit({
-//   name : "Leechi",
-//   rating : 8,
-//   review : "better"
-// });
-// const fruit3 = new Fruit({
-//   name : "Orange",
-//   rating : 6,
-//   review : "ok"
-// });
-//
-// Fruit.insertMany([fruit2,fruit3] , function(err){
-//   if(err)
-//   console.log(err); // to check for error
-//   else
-//   console.log("running");
-// })
-// Fruit.find(function(err , var_fruits){
-//   if(err){
-//     console.log(err);
-//   }
-//   else{
-//   console.log(var_fruits);
-// mongoose.connection.close();
-//   var_fruits.forEach(function(var_fruits){
-//     console.log(var_fruits.name);
-//   })
-// }
-// });
+person.save()
+
+Fruit.find(function(err , var_fruits){
+  if(err){
+    console.log(err);
+  }
+  else{
+  console.log(var_fruits);
+ mongoose.connection.close();
+  var_fruits.forEach(function(var_fruits){
+    console.log(var_fruits.name);
+  })
+}
+});
