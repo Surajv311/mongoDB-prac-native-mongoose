@@ -171,3 +171,4 @@ Fruit.deleteOne({_id:"5f243aadc0601d6a08bda61e"},function(err){
   console.log("deleted & running");
 }
 });
+// similarly deleteMany ....
