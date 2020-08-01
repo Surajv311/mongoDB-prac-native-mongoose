@@ -30,8 +30,8 @@ const fruit = new Fruit({
 const personSchema = new mongoose.Schema({
   name : String,
   age:Number,
-  
-  // embedding fruit schema in this
+  favfruit : fruitSchema,
+  // embedding fruit schema in this   
 });
 
 const Person = mongoose.model("Person" , personSchema);
